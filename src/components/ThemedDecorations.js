@@ -1,19 +1,18 @@
 // Code ThemedDecoration Component Here
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 
 export default class ThemedDecorations extends React.Component {
-  render() {
-    const children = React.Children.map(this.props.children, child => {
-      return React.cloneElement(child, {
-        className: child.props.themeTitle,
-      });
-    });
+  render(){
+    const child = React.Children.map(this.props.children, child => React.cloneElement(child, {
+      className: this.props.theme,
+    }));
 
-    return (
+    return(
       <div>
-        {children}
+        {child}
       </div>
-    );
+     )
   }
 }
